@@ -1,0 +1,18 @@
+﻿<Window x:Class="ReactiveUIRepExampleApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:vm="clr-namespace:ReactiveUIRepExampleApp.Model"
+        Title="NotGreeeeeen" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:ColorChooserThatDoesntLikeGreen/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <xctk:ColorCanvas Name="NotGeenColorCanvas" SelectedColorChanged="NotGeenColorCanvas_OnSelectedColorChanged" R="{Binding Red, Mode=TwoWay}" G="{Binding Green, Mode=TwoWay}" B="{Binding Blue}"></xctk:ColorCanvas>
+        <Button Grid.Row="1" Content="Ok" Command="{Binding OkButton}"></Button>
+    </Grid>
+</Window>
